@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FraController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,6 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('intranet.dashboard');
 });
+
+
+//Route::resource('fra', FraController::class, ['except' => ['destroy']]);

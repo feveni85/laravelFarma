@@ -14,7 +14,7 @@ php artisan make:controller FelipeController -r
 
 # Creando un modelo, con su controlador y migracion de tipo resource
 # el modelo siempre comienza con mayuscula y debe ser en singular
-php artisan make:model Felipe -mcr
+php artisan make:model [] -mcr
 
 ```
 
