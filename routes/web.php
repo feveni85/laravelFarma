@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\FraController;
+use App\Http\Controllers\TypePaymentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,5 +21,4 @@ Route::get('/dashboard', function () {
     return view('intranet.dashboard');
 });
 
-
-//Route::resource('fra', FraController::class, ['except' => ['destroy']]);
+Route::resource('typepayment', TypePaymentController::class, ['except' => ['destroy']]);
