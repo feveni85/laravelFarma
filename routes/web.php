@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TypePaymentController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +22,8 @@ Route::get('/dashboard', function () {
     return view('intranet.dashboard');
 });
 
+
 Route::resource('typepayment', TypePaymentController::class, ['except' => ['destroy']]);
+
+Route::resource('role', RoleController::class, ['except' => ['destroy']]);
+

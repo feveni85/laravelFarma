@@ -638,6 +638,7 @@
 
             <section class="content">
                 @yield('content')
+                 <p>Fernando</p>
             </section>
         </div>
 
