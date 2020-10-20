@@ -25,65 +25,33 @@
             <h3 class="card-title">Tipos de Pagos</h3>
 
             <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-toggle="tooltip"
-                    title="Collapse">
+                <a type="button" class="btn btn-tool" href="{{ route('typepayment.create') }}">
                     <i class="fas fa-plus"></i>
-                </button>
+                </a>
             </div>
         </div>
         <div class="card-body">
             <table class="table table-bordered">
                 <thead>
-                  <tr>
-                    <th style="width: 10px">#</th>
-                    <th>Task</th>
-                    <th>Progress</th>
-                    <th style="width: 40px">Label</th>
-                  </tr>
+                    <tr>
+                        <th style="width: 10px">ID</th>
+                        <th>Tipo de Pago</th>
+                        <th>Estado</th>
+                        <th style="width: 40px">...</th>
+                    </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1.</td>
-                    <td>Update software</td>
-                    <td>
-                      <div class="progress progress-xs">
-                        <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                      </div>
-                    </td>
-                    <td><span class="badge bg-danger">55%</span></td>
-                  </tr>
-                  <tr>
-                    <td>2.</td>
-                    <td>Clean database</td>
-                    <td>
-                      <div class="progress progress-xs">
-                        <div class="progress-bar bg-warning" style="width: 70%"></div>
-                      </div>
-                    </td>
-                    <td><span class="badge bg-warning">70%</span></td>
-                  </tr>
-                  <tr>
-                    <td>3.</td>
-                    <td>Cron job running</td>
-                    <td>
-                      <div class="progress progress-xs progress-striped active">
-                        <div class="progress-bar bg-primary" style="width: 30%"></div>
-                      </div>
-                    </td>
-                    <td><span class="badge bg-primary">30%</span></td>
-                  </tr>
-                  <tr>
-                    <td>4.</td>
-                    <td>Fix and squish bugs</td>
-                    <td>
-                      <div class="progress progress-xs progress-striped active">
-                        <div class="progress-bar bg-success" style="width: 90%"></div>
-                      </div>
-                    </td>
-                    <td><span class="badge bg-success">90%</span></td>
-                  </tr>
+                    @foreach ($data as $item)
+                        <tr>
+                            <td>{{ $item->idTypePaymnet }}</td>
+                            <td>{{ $item->varTypePayment }}</td>
+                            <td>{{ $item->bitState }}</td>
+                            <td><span class="badge bg-danger">55%</span></td>
+                        </tr>
+                    @endforeach
+
                 </tbody>
-              </table>
+            </table>
         </div>
 
         <div class="card-footer">

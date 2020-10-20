@@ -14,7 +14,8 @@ class TypePaymentController extends Controller
      */
     public function index()
     {
-        return view('intranet.typepayment.index');
+        $data = TypePayment::all();
+        return view('intranet.typepayment.index',['data' => $data]);
     }
 
     /**
@@ -35,18 +36,16 @@ class TypePaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'varTypePayment'=>'required'
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\TypePayment  $typePayment
-     * @return \Illuminate\Http\Response
-     */
-    public function show(TypePayment $typePayment)
-    {
-        //
+        TypePayment::create([
+            'varTypePayment'=>$request->varTypePayment,
+            'bitState'=>(($request->bitState == 'on') ? true : false)
+        ]);
+
+        return redirect()->route('typepayment.index')->with('success','Tipo de pago guardado');
     }
 
     /**
@@ -55,9 +54,10 @@ class TypePaymentController extends Controller
      * @param  \App\Models\TypePayment  $typePayment
      * @return \Illuminate\Http\Response
      */
-    public function edit(TypePayment $typePayment)
+    public function edit($id)
     {
-        return view('intranet.typepayment.edit');
+        $data = TypePayment::findodfail($id);
+        return view('intranet.typepayment.edit',['data'=>$data]);
     }
 
     /**
@@ -69,17 +69,13 @@ class TypePaymentController extends Controller
      */
     public function update(Request $request, TypePayment $typePayment)
     {
-        //
-    }
+        $request->validate([
+            'varTypePayment'=>'required',
+            'bitState'=>'required'
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\TypePayment  $typePayment
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(TypePayment $typePayment)
-    {
-        //
+        $typePayment->update($request->all());
+
+        return redirect()->route('typepayment.index')->with('success','Tipo de pago actualizado.');
     }
 }
